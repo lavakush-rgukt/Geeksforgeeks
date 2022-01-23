@@ -1,0 +1,40 @@
+
+//Find duplicates in an array 
+class Solution {
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+         
+        
+        Map<Integer,Integer> m = new HashMap<Integer,Integer>();
+        for(int i=0;i<arr.length;i++){
+            if(m.containsKey(arr[i]) ){
+                int temp = arr[i] + 1;
+                m.put(arr[i],temp);    
+            }else{
+                m.put(arr[i],arr[i]); 
+            }
+            
+        }
+        ArrayList<Integer> ret = new ArrayList<Integer>();
+        boolean contains=false;
+        
+        for ( Map.Entry<Integer, Integer> entry : m.entrySet()) {
+           // System.out.println(entry.getKey() + "->"+entry.getValue());
+                if(!entry.getKey().equals(entry.getValue())){
+                    ret.add(entry.getKey());
+                    contains = true;
+                }
+                
+            }
+
+         
+        
+        if(contains==false){
+            ret.add(-1);
+        }else{
+            Collections.sort(ret);
+        }
+        
+        return ret;
+        
+    }
+}
