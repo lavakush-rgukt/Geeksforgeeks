@@ -1,6 +1,6 @@
 
 //Find duplicates in an array 
-class Solution {
+class FindDuplicatesInArray {
     public static ArrayList<Integer> duplicates(int arr[], int n) {
          
         
